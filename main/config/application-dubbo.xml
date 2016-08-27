@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+ ">
+
+    <!-- 消费端名称信息-->
+    <dubbo:application name="suixing.rest.server" owner="liyuqi" organization="heyi.wireless" logger="slf4j" />
+    <dubbo:monitor protocol="registry"/>
+    <dubbo:registry protocol="zookeeper" address="${zk.server}" client="curator" register="true"/>
+
+    <dubbo:consumer id="suixing.rest.consumer" owner="liyuqi"  timeout="5000" retries="2" loadbalance="roundrobin" layer="web"/>
+
+    <dubbo:reference id="appVersionService" interface="com.heyi.suixing.rpc.app.service.AppVersionService" version="1.0"/>
+    <dubbo:reference id="appCiService" interface="com.heyi.suixing.rpc.app.service.AppCiService" version="1.0"/>
+    <dubbo:reference id="userService" interface="com.heyi.suixing.rpc.user.service.UserService" version="1.0"/>
+    <dubbo:reference id="videoService" interface="com.heyi.suixing.rpc.video.service.VideoService" version="1.0"/>
+
+</beans>

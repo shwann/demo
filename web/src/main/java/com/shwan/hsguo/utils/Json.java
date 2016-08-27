@@ -1,5 +1,4 @@
 package com.shwan.hsguo.utils;
-
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.type.TypeFactory;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +7,6 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 public class Json {
-
     // 全局共享，重复使用效率更好
     public static ObjectMapper mapper = new ObjectMapper();
     /**
@@ -46,7 +44,6 @@ public class Json {
             printWriter.close();
         }
     }
-
     /**
      * 输出Object Json数据
      *
@@ -67,16 +64,12 @@ public class Json {
             printWriter.close();
         }
     }
-
-   
     /**
      * JSON到Map转化
      *
      * @param url
      * @return
      */
-
-
     public static Map jsonStringToMap(String srcStr) throws Exception {
         Map map = null;
         if (srcStr != null && !"".equals(srcStr))
@@ -89,7 +82,6 @@ public class Json {
      * @param url
      * @return
      */
-
     public static List jsonStringToList(String content) throws Exception {
         List list = null;
         list = mapper.readValue(content, TypeFactory.type(List.class));

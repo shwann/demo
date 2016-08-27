@@ -213,7 +213,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>act</finalName>
+		<finalName>web</finalName>
 		<filters>
 			<filter>${project.basedir}/src/main/filters/filter-${env}.properties</filter>
 		</filters>

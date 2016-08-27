@@ -1,14 +1,9 @@
 package com.shwan.hsguo.utils;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
-
 public class IpUtils{
-
   private IpUtils(){
   }
   public static Logger logger = Logger.getLogger(IpUtils.class);
@@ -42,7 +37,6 @@ public class IpUtils{
           ip = inet.getHostAddress();  
       } 
     }
-
     // 多级反向代理检测
     if(ip != null && ip.indexOf(",") > 0){
       ip = ip.trim().split(",")[0];
